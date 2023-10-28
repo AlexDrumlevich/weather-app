@@ -14,10 +14,20 @@ import { WeatherDataProcessor } from "./data/WeatherDataProcessor.js";
 // let promiseData = promiseResponse.then(response=>response.json());
 // let dataProcessing = promiseData.then(data => console.log(data.hourly.time
 //     ))
-const params = {/*required params for form*/};
 const weatherProcessor = new WeatherDataProcessor();
+const params = {formElementId: "formRequest", 
+        dateFromElementId: "inputDateFrom", 
+        dateToElementId: "inputDateTo", 
+        hoursFromElementId: "inputHoursFrom", 
+        hoursToElementId: "inputHoursTo", 
+        selectCityElementId: "inputCity",
+        errorMessageElementId: "errorMessageElement",
+        selectCityOptions: weatherProcessor.getCities()
+    };
 const dataForm = new DataForm(params);
-const temperatureList = new TemperaturesList("idList");
+dataForm.addHandler((dataFromForm) => console.log(dataFromForm))
+
+const temperatureList = new TemperaturesList("resultSection");
 dataForm.addHandler((dataFromForm) => {
     const promiseData = weatherProcessor.getData(dataFromForm);
     promiseData.then(data => temperatureList.showTemperatures(data));

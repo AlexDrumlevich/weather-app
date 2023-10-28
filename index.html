@@ -1,4 +1,4 @@
-@@ -0,0 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +8,31 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="date" min="2022-12-19" max="2023-01-03">
+    <head>Enter request parameters</head>
+   <section>
+        <form id="formRequest">
+            <div>
+                <input type="date" name="dateFrom" id="inputDateFrom" required>
+                <input type="date" name="dateTo" id="inputDateTo" required>
+            </div>
+            <div>
+                <input type="number" name="hoursFrom" id="inputHoursFrom" required>
+                <input type="number" name="hoursTo" id="inputHoursTo" required>
+            </div>
+            <div>
+                <select name="city" id="inputCity" required></select>
+            </div>
+            <div>
+                <button type="submit">search</button>
+            </div>
+        </form>
+   </section>
+   <section>
+        <div id="errorMessageElement"></div>
+   </section>
+   <section id="resultSection">
+
+   </section>
     <script src="src/main.js" type="module"></script>
 </body>
 </html>
